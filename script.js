@@ -1,6 +1,8 @@
 let countdown;
 let timeLeft;
+let rounds = 0;
 const display = document.getElementById('display');
+const round = document.getElementById('round');
 
 document.getElementById('startBtn').addEventListener('click', function() {
     const input = document.getElementById('timeInput').value;
@@ -17,11 +19,14 @@ document.getElementById('resetBtn').addEventListener('click', function() {
     clearInterval(countdown);
     display.innerHTML = "00:00";
     document.getElementById('timeInput').value = '';
+    rounds = 0;
 });
 
 document.getElementById('restartBtn').addEventListener('click', function() {
     input = document.getElementById('timeInput').value;
     timeLeft = parseInt(input);
+    rounds++;
+    round.innerHTML = rounds;
     startCountdown();
 });
 
@@ -32,6 +37,8 @@ function startCountdown() {
 	    speak("time's upp.....");
 	    clearInterval(countdown);
 	    display.innerHTML = "Time's up!";
+	    rounds++;
+            round.innerHTML = rounds;
 	} else {
 	    text = timeLeft.toString();
 	    speak(text);
@@ -52,3 +59,4 @@ function speak(text) {
     utterance.rate = 2;
     window.speechSynthesis.speak(utterance);
 }
+
