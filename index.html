@@ -19,6 +19,10 @@
             padding: 10px 20px;
             margin: 5px;
         }
+	#restartBtn, #stopBtn {
+	    padding: 20px 35px;
+	    background-color: red;
+	}
     </style>
 </head>
 <body>
@@ -26,11 +30,10 @@
     <h1>Countdown Timer</h1>
     <input type="number" id="timeInput" placeholder="Seconds" min="1">
     <button id="startBtn">Start</button>
-    <button id="stopBtn">Stop</button>
     <button id="resetBtn">Reset</button>
+    <button id="stopBtn">Stop</button>
+    <button id="restartBtn">Restart</button>
     <h2 id="display">00:00</h2>
-
-    <audio id="alarmSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
 
     <script src="script.js">  </script>
 
